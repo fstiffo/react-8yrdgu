@@ -14,7 +14,15 @@ var firebaseConfig = {
   appId: "1:515549877140:web:845ee63a25d3b0b2"
 };
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+try {
+  firebase.initializeApp(firebaseConfig);
+} catch (err) {
+  // we skip the "already exists" message which is
+  // not an actual error when we're hot-reloading
+  if (!/already exists/.test(err.message)) {
+    console.error('Firebase initialization error', err.stack)
+  }
+}
 firebase.firestore().settings({ timestampsInSnapshots: true });
 
 export default firebase 
