@@ -1,5 +1,5 @@
 
-import firebase from 'firebase/app';
+import * as firebase from 'firebase/firebase'
 import 'firebase/auth';
 import 'firebase/firestore';
 
@@ -23,6 +23,6 @@ try {
     console.error('Firebase initialization error', err.stack)
   }
 }
-firebase.firestore().settings({ timestampsInSnapshots: true });
+// firebase.firestore().settings({ timestampsInSnapshots: true });
 
 export default firebase 
