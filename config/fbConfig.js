@@ -1,7 +1,7 @@
 
 import firebase from 'firebase/app';
-import 'firebase/firestore';
 import 'firebase/auth';
+import 'firebase/firestore';
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
@@ -23,6 +23,6 @@ try {
     console.error('Firebase initialization error', err.stack)
   }
 }
-// firebase.firestore().settings({ timestampsInSnapshots: true });
+firebase.firestore().settings({ timestampsInSnapshots: true });
 
 export default firebase 
